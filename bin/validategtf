@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function main () {
+  local source_dir;
+  source_dir="$(dirname "$(dirname "$(realpath "${BASH_SOURCE[0]}")")")";
+  PERL5LIB="${source_dir}/lib" "${source_dir}/lib/validate_gtf.pl" ${@};
+  return;
+}
+
+main ${@};
+exit;
